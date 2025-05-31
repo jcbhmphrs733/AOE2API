@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const MongoClient = require('mongodb').MongoClient;
+
 const initDb = (callback) => {
     MongoClient.connect(process.env.MONGO_URL,)
         .then((client) => {
