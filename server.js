@@ -1,7 +1,7 @@
 //Requirements
 
 const express = require("express");
-const mongodb = require("./database/database.js");
+const mongodb = require("./data/database.js");
 
 //App creation
 const app = express();
