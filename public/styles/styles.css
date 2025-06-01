@@ -1,0 +1,24 @@
+body {
+  overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vw;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  background-image: url("/images/aoe2background.jpg");
+}
+
+body a {
+    margin-top: 1rem;
+  color: rgb(243, 215, 77);
+  text-decoration: none;
+  font-size: larger;
+}
+a:hover {
+  text-decoration: underline;
+}

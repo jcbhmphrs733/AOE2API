@@ -8,12 +8,10 @@ const app = express();
 const port = 3000;
 
 //Middleware
-app.use(express.static);
+app.use(express.static("public"));
 
 //Routes
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/", require("./routes/index"));
 
 //Database connection
 mongodb.initDb((err) => {
