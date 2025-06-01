@@ -28,11 +28,13 @@ const getSingle = async (req, res) => {
 
 const postCiv = async (req, res) => {;
     const newCiv = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday
+        name: req.body.name,
+        type: req.body.type,
+        castleTech: req.body.castleTech,
+        impTech: req.body.impTech,
+        uniqueUnit: req.body.uniqueUnit,
+        teamBonus: req.body.teamBonus,
+        bonus: req.body.bonus
     };
 
     const response = await mongodb.getDatabase().collection('civs').insertOne(newCiv);
@@ -46,11 +48,13 @@ const postCiv = async (req, res) => {;
 const putCiv = async (req, res) => {
     const civId = new ObjectId(req.params.id);
     const updatedCiv = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday
+        name: req.body.name,
+        type: req.body.type,
+        castleTech: req.body.castleTech,
+        impTech: req.body.impTech,
+        uniqueUnit: req.body.uniqueUnit,
+        teamBonus: req.body.teamBonus,
+        bonus: req.body.bonus
     };
 
     const response = await mongodb.getDatabase().collection('civs').replaceOne({ _id: civId }, updatedCiv);
