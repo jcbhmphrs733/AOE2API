@@ -59,7 +59,7 @@ const putCiv = async (req, res) => {
 
     const response = await mongodb.getDatabase().collection('civs').replaceOne({ _id: civId }, updatedCiv);
     if (response.modifiedCount > 0) {
-        res.status(204).json({ message: 'civ updated successfully' });
+        res.status(204).json({ message: 'Civ updated successfully' });
     } else {
         res.status(500).json({ error: 'Could not update civ' });
     }
