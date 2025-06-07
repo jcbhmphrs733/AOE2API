@@ -45,7 +45,7 @@ const postCiv = async (req, res) => {
     impTech: req.body.impTech,
     uniqueUnit: req.body.uniqueUnit,
     teamBonus: req.body.teamBonus,
-    bonus: req.body.bonus,
+    civBonus: req.body.bonus
   };
 
   const response = await mongodb
@@ -70,7 +70,7 @@ const putCiv = async (req, res) => {
     impTech: req.body.impTech,
     uniqueUnit: req.body.uniqueUnit,
     teamBonus: req.body.teamBonus,
-    bonus: req.body.bonus,
+    civBonus: req.body.bonus
   };
 
   const response = await mongodb
