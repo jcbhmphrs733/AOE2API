@@ -2,6 +2,7 @@
 
 const express = require("express");
 const mongodb = require("./data/database.js");
+const bodyParser = require("body-parser");
 
 //App creation
 const app = express();
@@ -9,6 +10,7 @@ const port = 3000;
 
 //Middleware
 app.use(express.static("public"));
+app.use(bodyParser.json());
 
 //Routes
 app.use("/", require("./routes/index"));
