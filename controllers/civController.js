@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   //#swagger.tags = ['Civs']
   //#swagger.description = 'Get a single civilization by ID'
-  const civId = new ObjectId.createFromHexString(req.params.id);
+  const civId = ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDatabase()
     .collection("civilizations")
@@ -62,7 +62,7 @@ const postCiv = async (req, res) => {
 const putCiv = async (req, res) => {
   //#swagger.tags = ['Civs']
   //#swagger.description = 'Update an existing civilization by ID'
-  const civId = new ObjectId.createFromHexString(req.params.id);
+  const civId = ObjectId.createFromHexString(req.params.id);
   const updatedCiv = {
     name: req.body.name,
     type: req.body.type,
@@ -87,14 +87,16 @@ const putCiv = async (req, res) => {
 const deleteCiv = async (req, res) => {
   //#swagger.tags = ['Civs']
   //#swagger.description = 'Delete a civilization by ID'
-  const civId = new ObjectId.createFromHexString(req.params.id);
+  try {
+  const civId = ObjectId.createFromHexString(req.params.id);
   const response = await mongodb
     .getDatabase()
     .collection("civilizations")
     .deleteOne({ _id: civId });
   if (response.deletedCount > 0) {
     res.status(204).json({ message: "Civ deleted successfully" });
-  } else {
+  }
+ } catch (err) {
     res.status(500).json({ error: "Could not delete Civ" });
   }
 };

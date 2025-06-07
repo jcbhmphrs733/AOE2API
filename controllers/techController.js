@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   //#swagger.tags = ['Techs']
   //#swagger.description = 'Get a single technology by ID'
-  const techId = new ObjectId.createFromHexString(req.params.id);
+  const techId = ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDatabase()
     .collection("technologies")
@@ -59,7 +59,7 @@ const postTech = async (req, res) => {
 const putTech = async (req, res) => {
   //#swagger.tags = ['Techs']
   //#swagger.description = 'Update an existing technology by ID'
-  const techId = new ObjectId.createFromHexString(req.params.id);
+  const techId = ObjectId.createFromHexString(req.params.id);
   const updatedTech = {
     name: req.body.name,
     cost: req.body.name,
@@ -81,7 +81,7 @@ const putTech = async (req, res) => {
 const deleteTech = async (req, res) => {
   //#swagger.tags = ['Techs']
   //#swagger.description = 'Delete a technology by ID'
-  const techId = new ObjectId.createFromHexString(req.params.id);
+  const techId = ObjectId.createFromHexString(req.params.id);
   const response = await mongodb
     .getDatabase()
     .collection("technologies")

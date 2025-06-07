@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   //#swagger.tags = ['Buildings']
   //#swagger.description = 'Get a single building by ID'
-  const buildingId = new ObjectId.createFromHexString(req.params.id);
+  const buildingId = ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDatabase()
     .collection("buildings")
@@ -58,7 +58,7 @@ const postBuilding = async (req, res) => {
 const putBuilding = async (req, res) => {
   //#swagger.tags = ['Buildings']
   //#swagger.description = 'Update an existing building by ID'
-  const buildingId = new ObjectId.createFromHexString(req.params.id);
+  const buildingId = ObjectId.createFromHexString(req.params.id);
   const updatedBuilding = {
     name: req.body.name,
     baseHp: req.body.baseHp,
@@ -79,7 +79,7 @@ const putBuilding = async (req, res) => {
 const deleteBuilding = async (req, res) => {
   //#swagger.tags = ['Buildings']
   //#swagger.description = 'Delete a building by ID'
-  const buildingId = new ObjectId.createFromHexString(req.params.id);
+  const buildingId = ObjectId.createFromHexString(req.params.id);
   const response = await mongodb
     .getDatabase()
     .collection("buildings")

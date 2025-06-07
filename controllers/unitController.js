@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   //#swagger.tags = ['Units']
   //#swagger.description = 'Get a single unit by ID'
-  const unitId = new ObjectId.createFromHexString(req.params.id);
+  const unitId = ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDatabase()
     .collection("units")
@@ -62,7 +62,7 @@ const postUnit = async (req, res) => {
 const putUnit = async (req, res) => {
   //#swagger.tags = ['Units']
   //#swagger.description = 'Update an existing unit by ID'
-  const unitId = new ObjectId.createFromHexString(req.params.id);
+  const unitId = ObjectId.createFromHexString(req.params.id);
   const updatedUnit = {
     name: req.body.name,
     baseHp: req.body.name,
@@ -87,14 +87,18 @@ const putUnit = async (req, res) => {
 const deleteUnit = async (req, res) => {
   //#swagger.tags = ['Units']
   //#swagger.description = 'Delete a unit by ID'
-  const unitId = new ObjectId.createFromHexString(req.params.id);
-  const response = await mongodb
-    .getDatabase()
-    .collection("units")
-    .deleteOne({ _id: unitId });
-  if (response.deletedCount > 0) {
-    res.status(204).json({ message: "Unit deleted successfully" });
-  } else {
+  const unitId = ObjectId.createFromHexString(req.params.id);
+  try {
+    const response = await mongodb
+      .getDatabase()
+      .collection("units")
+      .deleteOne({ _id: unitId });
+    if (response.deletedCount > 0) {
+      res.status(200).json({ message: "Unit deleted successfully" });
+    } else {
+      res.status(404).json({ error: "Unit not found" });
+    }
+  } catch (err) {
     res.status(500).json({ error: "Could not delete unit" });
   }
 };
