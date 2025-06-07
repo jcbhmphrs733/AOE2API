@@ -11,3 +11,5 @@ router.get("/:id", isAuthenticated, civController.getSingle);
 router.post("/", isAuthenticated, civController.postCiv);
 router.put("/:id", isAuthenticated, civController.putCiv);
 router.delete("/:id", isAuthenticated, civController.deleteCiv);
+
+module.exports = router;

@@ -11,3 +11,6 @@ router.get("/:id", isAuthenticated, unitController.getSingle);
 router.post("/", isAuthenticated, unitController.postUnit);
 router.put("/:id", isAuthenticated, unitController.putUnit);
 router.delete("/:id", isAuthenticated, unitController.deleteUnit);
+
+//exporting the router
+module.exports = router;
