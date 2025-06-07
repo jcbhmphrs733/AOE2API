@@ -1,19 +1,19 @@
-const mongodb = require("../db/mongodb");
+const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
   //#swagger.tags = ['Buildings']
   //#swagger.description = 'Get all buildings'
-  const result = await mongodb.getDatabase().collection("buildings").find();
-  result
-    .toArray()
-    .then((buildings) => {
+  try {
+    const result = await mongodb.getDatabase().collection("buildings").find();
+    result.toArray().then((buildings) => {
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(buildings);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: "Could not fetch building" });
     });
+  } catch (err) {
+    console.error("Error fetching buildings:", err);
+    res.status(500).json({ error: "Could not fetch buildings" });
+  }
 };
 
 const getSingle = async (req, res) => {

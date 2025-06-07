@@ -1,10 +1,10 @@
-const mongodb = require("../db/mongodb");
+const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
   //#swagger.tags = ['Techs']
   //#swagger.description = 'Get all technologies'
-  const result = await mongodb.getDatabase().collection("tech").find();
+  const result = await mongodb.getDatabase().collection("technologies").find();
   result
     .toArray()
     .then((tech) => {
@@ -36,6 +36,8 @@ const getSingle = async (req, res) => {
 };
 
 const postTech = async (req, res) => {
+  //#swagger.tags = ['Techs']
+  //#swagger.description = 'Create a new technology'
   const newTech = {
     name: req.body.name,
     cost: req.body.name,

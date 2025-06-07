@@ -1,10 +1,10 @@
-const mongodb = require("../db/mongodb");
+const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
   //#swagger.tags = ['Civs']
   //#swagger.description = 'Get all civilizations'
-  const result = await mongodb.getDatabase().collection("civs").find();
+  const result = await mongodb.getDatabase().collection("civilizations").find();
   result
     .toArray()
     .then((civs) => {
