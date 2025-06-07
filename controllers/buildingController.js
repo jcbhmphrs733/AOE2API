@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
 }
 
 const getSingle = async (req, res) => {
-    const buildingId = new ObjectId(req.params.id);
+    const buildingId = new ObjectId.createFromHexString(req.params.id);
     const result = await mongodb.getDatabase().collection('buildings').find({ _id: buildingId });
     result.toArray()
         .then((buildings) => {
