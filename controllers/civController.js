@@ -22,7 +22,7 @@ const getSingle = async (req, res) => {
   const civId = new ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDatabase()
-    .collection("civs")
+    .collection("civilizations")
     .find({ _id: civId });
   result
     .toArray()
@@ -50,7 +50,7 @@ const postCiv = async (req, res) => {
 
   const response = await mongodb
     .getDatabase()
-    .collection("civs")
+    .collection("civilizations")
     .insertOne(newCiv);
   if (response.acknowledged) {
     res.status(204).send();
@@ -75,7 +75,7 @@ const putCiv = async (req, res) => {
 
   const response = await mongodb
     .getDatabase()
-    .collection("civs")
+    .collection("civilizations")
     .replaceOne({ _id: civId }, updatedCiv);
   if (response.modifiedCount > 0) {
     res.status(204).json({ message: "Civ updated successfully" });
@@ -90,7 +90,7 @@ const deleteCiv = async (req, res) => {
   const civId = new ObjectId.createFromHexString(req.params.id);
   const response = await mongodb
     .getDatabase()
-    .collection("civs")
+    .collection("civilizations")
     .deleteOne({ _id: civId });
   if (response.deletedCount > 0) {
     res.status(204).json({ message: "Civ deleted successfully" });

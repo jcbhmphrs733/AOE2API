@@ -22,7 +22,7 @@ const getSingle = async (req, res) => {
   const techId = new ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDatabase()
-    .collection("tech")
+    .collection("technologies")
     .find({ _id: techId });
   result
     .toArray()
@@ -47,7 +47,7 @@ const postTech = async (req, res) => {
 
   const response = await mongodb
     .getDatabase()
-    .collection("tech")
+    .collection("technologies")
     .insertOne(newTech);
   if (response.acknowledged) {
     res.status(204).send();
@@ -69,7 +69,7 @@ const putTech = async (req, res) => {
 
   const response = await mongodb
     .getDatabase()
-    .collection("tech")
+    .collection("technologies")
     .replaceOne({ _id: techId }, updatedTech);
   if (response.modifiedCount > 0) {
     res.status(204).json({ message: "tech updated successfully" });
@@ -84,7 +84,7 @@ const deleteTech = async (req, res) => {
   const techId = new ObjectId.createFromHexString(req.params.id);
   const response = await mongodb
     .getDatabase()
-    .collection("tech")
+    .collection("technologies")
     .deleteOne({ _id: techId });
   if (response.deletedCount > 0) {
     res.status(204).json({ message: "tech deleted successfully" });
