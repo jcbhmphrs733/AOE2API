@@ -12,4 +12,5 @@ router.post("/", isAuthenticated, civController.postCiv);
 router.put("/:id", isAuthenticated, civController.putCiv);
 router.delete("/:id", isAuthenticated, civController.deleteCiv);
 
+//Exporting the router
 module.exports = router;

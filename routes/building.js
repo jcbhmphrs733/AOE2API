@@ -12,4 +12,5 @@ router.post("/", isAuthenticated, buildingController.postBuilding);
 router.put("/:id", isAuthenticated, buildingController.putBuilding);
 router.delete("/:id", isAuthenticated, buildingController.deleteBuilding);
 
+//Exporting the router
 module.exports = router;
