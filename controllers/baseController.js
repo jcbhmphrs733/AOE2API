@@ -14,7 +14,15 @@ const buildHome = async (req, res) => {
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
+<div class="content"> 
+<h1>Welcome, ${
+      req.session.user !== undefined
+        ? `${req.session.user.username}!`
+        : "guest!"
+    } </h1>
+<p>This is a RESTful API for Age of Empires II data. Use the link below to explore the API.</p>
     <a href="/api-docs">Swagger Documentation</a>
+  </div>
 </body>
 </html>`
   );

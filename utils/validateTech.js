@@ -1,34 +1,26 @@
 const { body, validationResult } = require("express-validator");
 
-const validateCiv = [
+const validateTech = [
   body("name")
     .isString()
     .notEmpty()
     .withMessage("Name must be a non-empty string"),
-  body("type")
-    .isString()
-    .notEmpty()
-    .withMessage("Type must be a non-empty string"),
   body("castleTech")
     .isString()
     .notEmpty()
-    .withMessage("Castle tech must be a non-empty string"),
+    .withMessage("Type must be a non-empty string"),
+  body("castleTechCost")
+    .isInt()
+    .notEmpty()
+    .withMessage("Castle tech must be a non-empty integer"),
   body("impTech")
     .isString()
     .notEmpty()
     .withMessage("Imperial tech must be a non-empty string"),
-  body("uniqueUnit")
-    .isString()
+  body("inpTechCost")
+    .isInt()
     .notEmpty()
-    .withMessage("Unique unit must be a non-empty string"),
-  body("teamBonus")
-    .isString()
-    .notEmpty()
-    .withMessage("Team bonus must be a non-empty string"),
-  body("civBonus")
-    .isString()
-    .notEmpty()
-    .withMessage("Civ bonus must be a non-empty string"),
+    .withMessage("Unique unit must be a non-empty integer"),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -38,4 +30,4 @@ const validateCiv = [
   },
 ];
 
-module.exports = validateCiv;
+module.exports = validateTech;

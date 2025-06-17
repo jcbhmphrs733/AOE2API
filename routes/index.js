@@ -30,7 +30,7 @@ router.get(
 /*----------
 This route handles the logout functionality
 ----------*/
-router.get("logout", function (req, res, next) {
+router.get("/logout", function (req, res, next) {
   req.logout(function (err) {
     if (err) {
       return next(err);
