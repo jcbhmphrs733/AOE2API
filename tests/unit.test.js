@@ -25,7 +25,7 @@ describe('unit', function () {
     });
 
     test('GET /unit/:id', async () => {
-        const id = '6850e4f2ef039b67be171395';
+        const id = '6843ceb923054ad2bb12615a';
         const res = await request(app).get(`/unit/${id}`);
         expect(res.statusCode).toBe(200);
     });
