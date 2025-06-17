@@ -17,7 +17,7 @@ const validateTech = [
     .isString()
     .notEmpty()
     .withMessage("Imperial tech must be a non-empty string"),
-  body("inpTechCost")
+  body("impTechCost")
     .isInt()
     .notEmpty()
     .withMessage("Unique unit must be a non-empty integer"),

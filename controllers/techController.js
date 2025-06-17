@@ -54,9 +54,10 @@ const postTech = async (req, res) => {
   try {
     const newTech = {
       name: req.body.name,
-      cost: req.body.name,
-      ageAvailable: req.body.name,
-      description: req.body.name,
+      castleTech: req.body.castleTech,
+      castleTechCost: req.body.castleTechCost,
+      impTech: req.body.impTech,
+      impTechCost: req.body.impTechCost
     };
 
     const response = await mongodb
@@ -81,9 +82,10 @@ const putTech = async (req, res) => {
     const techId = ObjectId.createFromHexString(req.params.id);
     const updatedTech = {
       name: req.body.name,
-      cost: req.body.name,
-      ageAvailable: req.body.name,
-      description: req.body.name,
+      castleTech: req.body.castleTech,
+      castleTechCost: req.body.castleTechCost,
+      impTech: req.body.impTech,
+      impTechCost: req.body.impTechCost
     };
 
     const response = await mongodb

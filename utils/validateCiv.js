@@ -25,7 +25,7 @@ const validateCiv = [
     .isString()
     .notEmpty()
     .withMessage("Team bonus must be a non-empty string"),
-  body("civBonus")
+  body("bonus")
     .isString()
     .notEmpty()
     .withMessage("Civ bonus must be a non-empty string"),
