@@ -6,8 +6,8 @@ const unitController = require("../controllers/unitController");
 const { isAuthenticated } = require("../middleware/authenticate");
 
 //routes
-router.get("/", isAuthenticated, unitController.getAll);
-router.get("/:id", isAuthenticated, unitController.getSingle);
+router.get("/", unitController.getAll);
+router.get("/:id", unitController.getSingle);
 router.post("/", isAuthenticated, unitController.postUnit);
 router.put("/:id", isAuthenticated, unitController.putUnit);
 router.delete("/:id", isAuthenticated, unitController.deleteUnit);

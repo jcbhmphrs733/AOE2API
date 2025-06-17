@@ -6,8 +6,8 @@ const techController = require("../controllers/techController");
 const { isAuthenticated } = require("../middleware/authenticate");
 
 //routes
-router.get("/", isAuthenticated, techController.getAll);
-router.get("/:id", isAuthenticated, techController.getSingle);
+router.get("/", techController.getAll);
+router.get("/:id", techController.getSingle);
 router.post("/", isAuthenticated, techController.postTech);
 router.put("/:id", isAuthenticated, techController.putTech);
 router.delete("/:id", isAuthenticated, techController.deleteTech);
