@@ -17,7 +17,7 @@ const validateUnit = [
     .isString()
     .notEmpty()
     .withMessage("Imperial tech must be a non-empty string"),
-  body("baseAttack")
+  body("baseAtk")
     .isInt()
     .notEmpty()
     .withMessage("Unique unit must be a non-empty integer"),
