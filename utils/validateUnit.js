@@ -5,19 +5,19 @@ const validateUnit = [
     .isString()
     .notEmpty()
     .withMessage("Name must be a non-empty string"),
-  body("baseHP")
+  body("baseHp")
     .isInt()
     .notEmpty()
     .withMessage("Type must be a non-empty integer"),
   body("cost")
-    .isObject()
+    .isArray()
     .notEmpty()
-    .withMessage("Castle tech must be a non-empty object"),
+    .withMessage("Castle tech must be a non-empty array"),
   body("type")
     .isString()
     .notEmpty()
     .withMessage("Imperial tech must be a non-empty string"),
-  body("baseAttack")
+  body("baseAtk")
     .isInt()
     .notEmpty()
     .withMessage("Unique unit must be a non-empty integer"),
