@@ -51,12 +51,12 @@ const postUnit = async (req, res) => {
   try {
     const newUnit = {
       name: req.body.name,
-      baseHp: req.body.name,
-      cost: req.body.name,
-      type: req.body.name,
-      baseAtk: req.body.name,
-      baseRange: req.body.name,
-      moveSpeed: req.body.name,
+      baseHp: req.body.baseHp,
+      cost: req.body.cost,
+      type: req.body.type,
+      baseAtk: req.body.baseAtk,
+      baseRange: req.body.baseRange,
+      moveSpeed: req.body.moveSpeed,
     };
 
     const response = await mongodb

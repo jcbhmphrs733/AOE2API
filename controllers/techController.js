@@ -54,9 +54,9 @@ const postTech = async (req, res) => {
   try {
     const newTech = {
       name: req.body.name,
-      cost: req.body.name,
-      ageAvailable: req.body.name,
-      description: req.body.name,
+      cost: req.body.cost,
+      ageAvailable: req.body.ageAvailable,
+      description: req.body.description,
     };
 
     const response = await mongodb
